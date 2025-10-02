@@ -1,1476 +1,241 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marcia Mayaba Foundation | Empowering Girls & Women</title>
-    <meta name="description" content="Empowering girls and women from township schools to the automotive boardroom through mentorship, education, and industry exposure.">
-    
-    <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/png;base64,[YOUR_LOGO_BASE64]">
-    
-    <style>
-        /* Modern CSS Variables */
-        :root {
-            --primary: #8c2046;
-            --primary-dark: #6d1937;
-            --primary-light: #a62c5a;
-            --accent: #ffd6e6;
-            --accent-dark: #ffbcd9;
-            --light: #f9f9f9;
-            --dark: #1a1a1a;
-            --gray: #6c757d;
-            --gray-light: #e9ecef;
-            --white: #ffffff;
-            --shadow: 0 10px 30px rgba(140, 32, 70, 0.15);
-            --shadow-hover: 0 15px 40px rgba(140, 32, 70, 0.25);
-            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            --gradient-dark: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-            font-size: 16px;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--gradient);
-            color: var(--white);
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .btn:active {
-            transform: translateY(-1px);
-        }
-
-        /* Enhanced Header with Logo */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            transition: var(--transition);
-        }
-
-        .logo-img:hover {
-            transform: rotate(5deg) scale(1.05);
-        }
-
-        .logo-text-content h1 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 0;
-        }
-
-        .logo-text-content p {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        /* Enhanced Navigation */
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-menu a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 8px 0;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-menu a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 3px;
-            bottom: 0;
-            left: 0;
-            background: var(--gradient);
-            transition: var(--transition);
-            border-radius: 2px;
-        }
-
-        .nav-menu a:hover {
-            color: var(--primary);
-        }
-
-        .nav-menu a:hover:after {
-            width: 100%;
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .nav-toggle:hover {
-            transform: rotate(90deg);
-        }
-
-        /* Social Media Header Icons */
-        .social-header {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .social-header a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: var(--gradient);
-            color: var(--white);
-            border-radius: 50%;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 1.2rem;
-        }
-
-        .social-header a:hover {
-            transform: translateY(-3px) rotate(5deg);
-            box-shadow: var(--shadow);
-        }
-
-        /* Enhanced Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(140, 32, 70, 0.9) 0%, rgba(166, 44, 90, 0.8) 100%),
-                        url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(255, 214, 230, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            margin-bottom: 40px;
-            color: var(--accent);
-            font-weight: 400;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--white);
-            color: var(--white);
-        }
-
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--primary);
-        }
-
-        /* Enhanced Sections */
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-            font-size: clamp(2rem, 4vw, 3rem);
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray);
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Enhanced About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-        }
-
-        .about-text strong {
-            color: var(--primary);
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Enhanced Programs Section */
-        .programs {
-            background: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .programs:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(140, 32, 70, 0.05) 0%, transparent 70%);
-            z-index: 0;
-        }
-
-        .program-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .program-card {
-            background: var(--white);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .program-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--gradient);
-            transform: scaleX(0);
-            transition: var(--transition);
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .program-card:hover:before {
-            transform: scaleX(1);
-        }
-
-        .program-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 25px;
-            transition: var(--transition);
-        }
-
-        .program-card:hover .program-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        /* Enhanced Impact Section */
-        .impact-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .stat {
-            background: var(--white);
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient);
-        }
-
-        .stat:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        /* Enhanced Get Involved Section */
-        .get-involved {
-            background: var(--gradient-dark);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .get-involved .section-title {
-            color: var(--white);
-        }
-
-        .get-involved .section-subtitle {
-            color: var(--accent);
-        }
-
-        .involvement-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .option-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-        }
-
-        .option-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .option-card h3 {
-            color: var(--accent);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .option-card p {
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* Enhanced Contact Section */
-        .contact-form {
-            background: var(--white);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid var(--gray-light);
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: var(--transition);
-            background: var(--light);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: var(--white);
-            box-shadow: 0 0 0 3px rgba(140, 32, 70, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .contact-info {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 2px solid var(--gray-light);
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin: 10px 0;
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* Enhanced Footer */
-        footer {
-            background: var(--dark);
-            color: var(--white);
-            padding: 60px 0 20px;
-            position: relative;
-        }
-
-        footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: var(--gradient);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            color: var(--accent);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        .footer-logo-text {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--white);
-        }
-
-        .footer-section p {
-            color: var(--gray-light);
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section ul li a {
-            color: var(--gray-light);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-section ul li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        /* Enhanced Social Links */
-        .social-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: var(--gradient);
-            color: var(--white);
-            border-radius: 50%;
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 1.3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-links a:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px) rotate(5deg);
-            box-shadow: var(--shadow);
-        }
-
-        .social-links a:hover:before {
-            left: 100%;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: var(--gradient);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-            box-shadow: var(--shadow);
-            border: none;
-        }
-
-        .scroll-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px) rotate(360deg);
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* Loading Animation */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-overlay.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid var(--gray-light);
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-            
-            .hero-title {
-                font-size: 3rem;
-            }
-            
-            .header-container {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                padding-top: 50px;
-                transition: var(--transition);
-                box-shadow: var(--shadow);
-            }
-
-            .nav-menu.active {
-                left: 0;
-            }
-
-            .nav-menu li {
-                margin: 20px 0;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
-
-            .social-header {
-                display: none;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .contact-form {
-                padding: 30px 20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .program-cards, .involvement-options {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            header, footer, .scroll-top, .social-links {
-                display: none;
-            }
-
-            body {
-                font-size: 12pt;
-                line-height: 1.5;
-                color: #000;
-                background: #fff;
-            }
-
-            .section {
-                padding: 20px 0;
-                page-break-inside: avoid;
-            }
-        }
-
-        /* Accessibility Improvements */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        :focus {
-            outline: 3px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        button:focus, a:focus {
-            outline: 3px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
-<base target="_blank">
-</head>
-<body>
-    <!-- Loading Overlay -->
-    <div class="loading-overlay" id="loadingOverlay">
-        <div class="loading-spinner"></div>
-    </div>
-
-    <!-- Enhanced Header with Logo -->
-    <header>
-        <div class="container header-container">
-            <div class="logo-section">
-                <!-- Replace with your actual logo -->
-                <img src="data:image/png;base64,[YOUR_LOGO_BASE64]" alt="Marcia Mayaba Foundation Logo" class="logo-img">
-                <div class="logo-text-content">
-                    <h1>Marcia Mayaba</h1>
-                    <p>FOUNDATION</p>
-                </div>
-            </div>
-            
-            <nav>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#programs">Programs</a></li>
-                    <li><a href="#impact">Impact</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Social Media Header Icons -->
-            <div class="social-header">
-                <a href="https://www.facebook.com/share/15ynm95Ges/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://www.instagram.com/marciamayabafoundationigsh=bXNnbmVnd21qYjlv&utm_source=qr" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/marcia-mayaba-foundation/" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
-            
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
+import { useState } from "react";
+import { ShaderAnimation } from "@/components/ui/shader-animation";
+import { Navigation } from "@/components/Navigation";
+import { ContactForm } from "@/components/ContactForm";
+import { CustomSolutionsDialog } from "@/components/CustomSolutionsDialog";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
+const Index = () => {
+  const [solutionsDialogOpen, setSolutionsDialogOpen] = useState(false);
+
+  const serviceDetails = [
+    {
+      title: "Social media management",
+      content: "We manage your social media presence across all platforms, creating engaging content and building your online community."
+    },
+    {
+      title: "Lead generations",
+      content: "Strategic campaigns designed to identify and attract potential customers, converting them into qualified leads for your business."
+    },
+    {
+      title: "Campaigns",
+      content: "Comprehensive marketing campaigns tailored to your brand's goals, from planning to execution and analysis."
+    },
+    {
+      title: "CRM Management",
+      content: "Optimize your customer relationship management system to streamline interactions and improve customer satisfaction."
+    },
+    {
+      title: "Customer service tools",
+      content: "Implementation and management of cutting-edge tools to enhance your customer support capabilities."
+    },
+    {
+      title: "Rewards programe",
+      content: "Design and implement loyalty programs that keep your customers engaged and coming back."
+    },
+    {
+      title: "Automations",
+      content: "Streamline your business processes with intelligent automation solutions that save time and reduce errors."
+    },
+    {
+      title: "Data solutions",
+      content: "Transform your data into actionable insights with our comprehensive data analytics and management solutions."
+    },
+    {
+      title: "Work flow creation and integration",
+      content: "Custom workflow solutions that integrate seamlessly with your existing systems to maximize efficiency."
+    }
+  ];
+
+  return (
+    <>
+      {/* Hero Section */}
+      <div id="home" className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden">
+        <ShaderAnimation />
+        <Navigation />
+        <h1 
+          onClick={() => setSolutionsDialogOpen(true)}
+          className="absolute z-10 text-center text-7xl leading-tight font-semibold tracking-wide whitespace-pre-wrap cursor-pointer hover:scale-105 transition-transform duration-300"
+          style={{
+            WebkitTextStroke: "2px white",
+            WebkitTextFillColor: "transparent",
+            textShadow: "0 0 40px rgba(255,255,255,0.5)",
+            letterSpacing: "0.1em"
+          }}
+        >
+          Leverage Marketing
+        </h1>
+      </div>
+
+      <CustomSolutionsDialog open={solutionsDialogOpen} onOpenChange={setSolutionsDialogOpen} />
+
+      {/* About Us Section */}
+      <section id="about" className="relative w-full py-24 px-8 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl font-bold text-foreground mb-8 tracking-tight">
+            About Us
+          </h2>
+          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              We are a solutions focused and problem solving company focused on positive outcome. 
+              We have pinpointed the leading probable scenario's affecting brands and businesses 
+              negatively in all industries, we came to a profound realisation and a certain business model. 
+              <span className="font-semibold text-foreground"> Certainty.</span>
+            </p>
+            <p>
+              The biggest reward is finding solutions for the biggest problems, at Brands Enhanced 
+              that's what we do. With everything scaled and tailored to the clients needs.
+            </p>
+          </div>
         </div>
-    </header>
+      </section>
 
-    <!-- Enhanced Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1 class="hero-title fade-in">Empowering Girls & Women</h1>
-            <p class="hero-subtitle fade-in">From township schools to the automotive boardroom</p>
-            <div class="hero-cta fade-in">
-                <a href="#get-involved" class="btn">Get Involved</a>
-                <a href="#about" class="btn btn-outline">Learn More</a>
-            </div>
+      {/* Services Section */}
+      <section id="services" className="relative w-full py-24 px-8 bg-muted/30">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl font-bold text-foreground mb-12 tracking-tight">
+            Our Services
+          </h2>
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            {serviceDetails.map((service, index) => (
+              <AccordionItem key={index} value={`service-${index}`} id={`service-${index}`} className="border border-border rounded-lg px-6 bg-background/50">
+                <AccordionTrigger className="text-lg font-semibold hover:text-primary">
+                  {service.title}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  {service.content}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
-    </section>
+      </section>
 
-    <!-- Enhanced About Section -->
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title fade-in">About the Foundation</h2>
-            <p class="section-subtitle fade-in">Honoring legacy through action by creating opportunities for the girl child</p>
-            <div class="about-content">
-                <div class="about-text slide-in-left">
-                    <p>The <strong>Marcia Mayaba Foundation</strong> exists to honor legacy through action by creating opportunities for the girl child from early development to adulthood, and opening pathways into education and industries, in particular the automotive sector.</p>
-                    <p>Guided by <strong>grace, dignity, and strength</strong>, we empower girls and women to break barriers and achieve their full potential in traditionally male-dominated industries.</p>
-                    <p>Our comprehensive approach includes mentorship programs, educational support, industry exposure, and leadership development to create lasting change in our communities.</p>
-                </div>
-                <div class="about-image slide-in-right">
-                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Empowered women in education">
-                </div>
+      {/* Build a Custom Quote Section */}
+      <section id="custom-quote" className="relative w-full py-24 px-8 bg-background">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl font-bold text-foreground mb-8 tracking-tight">
+            Build a Custom Quote
+          </h2>
+          <p className="text-muted-foreground text-lg mb-12">
+            Select the services you need and we'll create a tailored solution for your business.
+          </p>
+          
+          <div className="space-y-8">
+            {/* Services Selection */}
+            <div className="space-y-4">
+              <h3 className="text-2xl font-semibold text-foreground">Select Services</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {serviceDetails.map((service, index) => (
+                  <div key={index} className="border border-border rounded-lg p-4 bg-background/50">
+                    <div className="flex items-start space-x-3">
+                      <input
+                        type="checkbox"
+                        id={`quote-service-${index}`}
+                        className="mt-1 h-4 w-4 rounded border-primary"
+                      />
+                      <div className="flex-1">
+                        <label
+                          htmlFor={`quote-service-${index}`}
+                          className="font-medium text-foreground cursor-pointer block mb-1"
+                        >
+                          {service.title}
+                        </label>
+                        <p className="text-sm text-muted-foreground">{service.content}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
+
+            {/* Contact Information Form */}
+            <div className="border border-border rounded-lg p-6 bg-muted/20">
+              <h3 className="text-2xl font-semibold text-foreground mb-6">Your Information</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="business-name" className="text-sm font-medium text-foreground">
+                    Business Name
+                  </label>
+                  <input
+                    id="business-name"
+                    type="text"
+                    placeholder="Your business name"
+                    className="w-full px-4 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="contact-name" className="text-sm font-medium text-foreground">
+                    Contact Name
+                  </label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    placeholder="Your name"
+                    className="w-full px-4 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium text-foreground">
+                    Email Address
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    className="w-full px-4 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="contact-number" className="text-sm font-medium text-foreground">
+                    Contact Number
+                  </label>
+                  <input
+                    id="contact-number"
+                    type="tel"
+                    placeholder="+1 (555) 000-0000"
+                    className="w-full px-4 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+              </div>
+              
+              <div className="mt-6 space-y-2">
+                <label htmlFor="additional-info" className="text-sm font-medium text-foreground">
+                  Additional Information
+                </label>
+                <textarea
+                  id="additional-info"
+                  placeholder="Tell us more about your needs..."
+                  rows={4}
+                  className="w-full px-4 py-2 rounded-md border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                />
+              </div>
+              
+              <button className="mt-6 w-full bg-primary text-primary-foreground hover:bg-primary/90 py-3 rounded-md font-semibold transition-colors">
+                Request Quote
+              </button>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Enhanced Programs Section -->
-    <section class="section programs" id="programs">
-        <div class="container">
-            <h2 class="section-title fade-in">Our Programs</h2>
-            <p class="section-subtitle fade-in">Comprehensive support from early development to career success</p>
-            <div class="program-cards">
-                <div class="program-card fade-in">
-                    <div class="program-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Mentorship Programs</h3>
-                    <p>One-on-one guidance and support for young women pursuing careers in the automotive industry, connecting them with successful professionals.</p>
-                </div>
-                
-                <div class="program-card fade-in">
-                    <div class="program-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Education Support</h3>
-                    <p>Scholarships, tutoring, and resources to help girls excel academically and pursue higher education in STEM fields.</p>
-                </div>
-                
-                <div class="program-card fade-in">
-                    <div class="program-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <h3>Industry Exposure</h3>
-                    <p>Workshops, factory tours, internships, and hands-on experience in the automotive sector to provide real-world insights.</p>
-                </div>
-                
-                <div class="program-card fade-in">
-                    <div class="program-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Leadership Development</h3>
-                    <p>Training programs to build confidence, communication skills, and leadership capabilities for future industry leaders.</p>
-                </div>
-            </div>
+      {/* Footer */}
+      <footer className="relative w-full py-12 px-8 bg-background border-t border-border">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-foreground font-bold text-xl mb-4">
+            Brand Enhancements
+          </div>
+          <p className="text-muted-foreground text-sm">
+            © {new Date().getFullYear()} Brand Enhancements. All rights reserved.
+          </p>
         </div>
-    </section>
+      </footer>
+    </>
+  );
+};
 
-    <!-- Enhanced Impact Section -->
-    <section class="section" id="impact">
-        <div class="container">
-            <h2 class="section-title fade-in">Our Impact</h2>
-            <p class="section-subtitle fade-in">Measurable results in empowering the next generation</p>
-            <div class="impact-stats">
-                <div class="stat fade-in">
-                    <div class="stat-number" data-count="250">0</div>
-                    <p>Girls Mentored</p>
-                </div>
-                
-                <div class="stat fade-in">
-                    <div class="stat-number" data-count="50">0</div>
-                    <p>Scholarships Awarded</p>
-                </div>
-                
-                <div class="stat fade-in">
-                    <div class="stat-number" data-count="30">0</div>
-                    <p>Industry Partners</p>
-                </div>
-                
-                <div class="stat fade-in">
-                    <div class="stat-number" data-count="15">0</div>
-                    <p>Schools Reached</p>
-                </div>
-            </div>
-            
-            <div class="impact-text fade-in">
-                <p class="text-center lead" style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: var(--gray);">
-                    Building futures where equal opportunity and purpose-driven leadership thrive. 
-                    Celebrating stories of resilience and success in the automotive industry and beyond.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Get Involved Section -->
-    <section class="section get-involved" id="get-involved">
-        <div class="container">
-            <h2 class="section-title fade-in">Get Involved</h2>
-            <p class="section-subtitle fade-in">Join us in creating lasting change</p>
-            <div class="involvement-options">
-                <div class="option-card fade-in">
-                    <h3>Volunteer</h3>
-                    <p>Share your time and expertise to mentor the next generation of female leaders in the automotive industry.</p>
-                    <a href="#contact" class="btn">Become a Volunteer</a>
-                </div>
-                
-                <div class="option-card fade-in">
-                    <h3>Partner With Us</h3>
-                    <p>As a company, help us create opportunities for young women through strategic partnerships and collaborations.</p>
-                    <a href="#contact" class="btn">Partner With Us</a>
-                </div>
-                
-                <div class="option-card fade-in">
-                    <h3>Donate</h3>
-                    <p>Your financial support helps us expand our programs and reach more girls who need our support and guidance.</p>
-                    <a href="#contact" class="btn">Make a Donation</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Contact Section -->
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Contact Us</h2>
-            <p class="section-subtitle fade-in">Get in touch to learn more about our programs</p>
-            <div class="contact-form fade-in">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Full Name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Your Email Address" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Your Phone Number">
-                    </div>
-                    
-                    <div class="form-group">
-                        <select class="form-control" required>
-                            <option value="">Select Interest</option>
-                            <option value="volunteer">Volunteering</option>
-                            <option value="partner">Partnership</option>
-                            <option value="donate">Donation</option>
-                            <option value="general">General Inquiry</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea class="form-control" placeholder="Your Message" required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-                
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:marciamayabafoundation@gmail.com">marciamayabafoundation@gmail.com</a></p>
-                    <p><i class="fas fa-phone"></i> Phone: <a href="tel:+27-000-000-0000">+27 XXX XXX XXXX</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Location: South Africa</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Footer with Social Links -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="data:image/png;base64,[YOUR_LOGO_BASE64]" alt="Marcia Mayaba Foundation Logo">
-                        <div>
-                            <h3>Marcia Mayaba</h3>
-                            <p>FOUNDATION</p>
-                        </div>
-                    </div>
-                    <p>Empowering girls and women from township schools to the automotive boardroom through education, mentorship, and opportunity.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/share/15ynm95Ges/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/marciamayabafoundationigsh=bXNnbmVnd21qYjlv&utm_source=qr" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/company/marcia-mayaba-foundation/" target="_blank" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="mailto:marciamayabafoundation@gmail.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#programs">Our Programs</a></li>
-                        <li><a href="#impact">Our Impact</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Our Programs</h3>
-                    <ul>
-                        <li><a href="#programs">Mentorship Programs</a></li>
-                        <li><a href="#programs">Education Support</a></li>
-                        <li><a href="#programs">Industry Exposure</a></li>
-                        <li><a href="#programs">Leadership Development</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p><i class="fas fa-envelope"></i> marciamayabafoundation@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +27 XXX XXX XXXX</p>
-                    <p><i class="fas fa-map-marker-alt"></i> South Africa</p>
-                    <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 - 17:00</p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 Marcia Mayaba Foundation. All rights reserved. | Empowering Girls & Women in Automotive</p>
-                <p>Designed with ❤️ by Leverage Inc</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scroll to top button -->
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Enhanced JavaScript -->
-    <script>
-        // Loading Screen
-        window.addEventListener('load', function() {
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            setTimeout(() => {
-                loadingOverlay.classList.add('hidden');
-            }, 1000);
-        });
-
-        // Navigation Toggle
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('header')) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu
-                    navMenu.classList.remove('active');
-                    navToggle.classList.remove('active');
-                }
-            });
-        });
-
-        // Scroll to top button
-        const scrollTop = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollTop.classList.add('active');
-            } else {
-                scrollTop.classList.remove('active');
-            }
-        });
-
-        scrollTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Animation on scroll
-        function checkVisibility() {
-            const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', checkVisibility);
-        window.addEventListener('load', checkVisibility);
-
-        // Animated counters
-        function animateCounter(el, target) {
-            let count = 0;
-            const duration = 2000;
-            const frameDuration = 1000 / 60;
-            const totalFrames = Math.round(duration / frameDuration);
-            const easeOutQuad = t => t * (2 - t);
-            
-            const counter = setInterval(() => {
-                count++;
-                const progress = easeOutQuad(count / totalFrames);
-                const currentCount = Math.round(target * progress);
-                el.textContent = currentCount;
-                
-                if (count === totalFrames) {
-                    clearInterval(counter);
-                }
-            }, frameDuration);
-        }
-
-        function initCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            let countersAnimated = false;
-            
-            return function() {
-                const statsSection = document.getElementById('impact');
-                const statsSectionTop = statsSection.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (statsSectionTop < screenPosition && !countersAnimated) {
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.getAttribute('data-count'));
-                        animateCounter(counter, target);
-                    });
-                    countersAnimated = true;
-                }
-            };
-        }
-
-        const checkCounters = initCounters();
-        window.addEventListener('scroll', checkCounters);
-
-        // Enhanced Form Handling
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission
-            setTimeout(() => {
-                // Success message
-                alert('Thank you for your message! We will get back to you within 24 hours.');
-                
-                // Reset form
-                this.reset();
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                
-                // In a real application, you would send the data to your server here
-                console.log('Form submitted:', data);
-            }, 2000);
-        });
-
-        // Header scroll effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            const header = document.querySelector('header');
-            
-            if (currentScroll > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Social media link tracking
-        document.querySelectorAll('.social-links a, .social-header a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const platform = this.getAttribute('aria-label');
-                console.log(`Social media click: ${platform}`);
-                // Add analytics tracking here
-            });
-        });
-
-        // Performance optimization - lazy load images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        img.classList.add('loaded');
-                        observer.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img').forEach(img => imageObserver.observe(img));
-        }
-
-        // Service Worker Registration (for PWA capabilities)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').then(registration => {
-                    console.log('SW registered: ', registration);
-                }).catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                });
-            });
-        }
-    </script>
-</body>
-</html>
+export default Index;
